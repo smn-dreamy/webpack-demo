@@ -7,4 +7,4 @@
 // var root = document.getElementById('root')
 // root.innerHTML = '<div class="iconfont iconauto iconbussiness-man">abc</div>'
 
-consoles.log(`hello world`)
+console.log(`hello world`)

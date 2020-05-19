@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "bundle": "webpack"
+    "watch": "webpack  --watch"
   },
   "author": "huahua",
   "license": "ISC",

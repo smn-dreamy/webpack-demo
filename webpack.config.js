@@ -7,10 +7,39 @@ module.exports = {
 	},
 	module: {
 		rules: [{
-			test: /\.png$/,
+			test: /\.(jpg|png|gif)$/,
 			use: {
-				loader: 'file-loader'
+				loader: 'url-loader',
+				options: {
+					//这种配置的语法叫placeholder(占位符)
+					name: '[name]_[hash].[ext]',
+					outputPath: 'images/',
+					limit: 2048
+				}
 			}
+		},{
+			test: /\.scss$/,
+			use: [
+				'style-loader',
+				{
+					loader: 'css-loader',
+					options: {
+						importLoaders: 2,
+						modules: true
+					}
+				},
+				'sass-loader',
+				{
+					loader: 'postcss-loader',
+					options: {
+						plugins:()=>[
+							require('autoprefixer')({
+                  browsers: ['last 2 version', '>1%', 'ios 7']
+            	})
+						]
+					}
+				}
+			]
 		}]
 	},
 	output: {

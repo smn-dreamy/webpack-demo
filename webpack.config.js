@@ -25,7 +25,7 @@ module.exports = {
 					loader: 'css-loader',
 					options: {
 						importLoaders: 2,
-						modules: true
+						// modules: true
 					}
 				},
 				'sass-loader',
@@ -40,6 +40,11 @@ module.exports = {
 					}
 				}
 			]
+		},{
+			test: /\.(eot|ttf|svg|woff)$/,
+			use: {
+				loader: 'file-loader'
+			}
 		}]
 	},
 	output: {

@@ -11,6 +11,14 @@ module.exports = {
 		main: './src/index.js',
 		// sub: './src/index.js'
 	},
+	devServer:{
+		contentBase: './dist', //表示服务器要起在哪一个文件夹下，因为打包生成的文件都会放到dist目录下，所以要借助webpackdevserver来帮助我们启动一个服务器，服务器的根路径就设置在当前根目录下的dist文件夹中
+		open: true,
+		port: '8099'
+		// proxy: {
+		// 	'/api': 'http://localhost:3000'
+		// }
+	},
 	module: {
 		rules: [{
 			test: /\.(jpg|png|gif)$/,
@@ -64,7 +72,7 @@ module.exports = {
 		})
 	],
 	output: {
-		// publicPath: 'http://cdn.com.cn',
+		// publicPath: '/',
 		filename: '[name].js',
 		path: path.resolve(__dirname, 'dist')
 	}

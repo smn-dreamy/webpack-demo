@@ -1,0 +1,8 @@
+{
+  "plugins": [["@babel/plugin-transform-runtime",{//@babel/plugin-transform-runtime会以闭包的形式去注入，间接的帮助组件去引入注入的内容，不存在全局污染的概念，在写类库的时候，不去污染全局环境是一个更好的方案
+    "corejs": 2,
+    "helpers": true,
+    "regenerator": true,
+    "useESModules": false,
+  }]]
+}

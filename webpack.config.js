@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
 	mode: 'development',
@@ -14,7 +15,9 @@ module.exports = {
 	devServer:{
 		contentBase: './dist', //表示服务器要起在哪一个文件夹下，因为打包生成的文件都会放到dist目录下，所以要借助webpackdevserver来帮助我们启动一个服务器，服务器的根路径就设置在当前根目录下的dist文件夹中
 		open: true,
-		port: '8099'
+		port: '8099',
+		// hot:true,
+		// hotOnly:true
 		// proxy: {
 		// 	'/api': 'http://localhost:3000'
 		// }
@@ -55,6 +58,21 @@ module.exports = {
 				}
 			]
 		},{
+			test: /\.css$/,
+			use: [
+				'style-loader',
+				{
+					loader: 'css-loader',
+					options: {
+						importLoaders: 2,
+						// modules: true
+					}
+				},
+				{
+					loader: 'postcss-loader',
+				}
+			]
+		},{
 			test: /\.(eot|ttf|svg|woff)$/,
 			use: {
 				loader: 'file-loader'
@@ -69,7 +87,8 @@ module.exports = {
 		}),
 		new CleanWebpackPlugin({
 			cleanAfterEveryBuildPattern: ['dist']
-		})
+		}),
+		// new webpack.HotModuleReplacementPlugin()
 	],
 	output: {
 		// publicPath: '/',

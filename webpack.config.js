@@ -4,9 +4,10 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = {
+	// mode: 'production',
+	// devtool:'cheap-module-source-map',
 	mode: 'development',
 	devtool:'cheap-module-eval-source-map',
-	// devtool:'cheap-module-source-map',
 
 	entry: {
 		main: './src/index.js',
@@ -116,6 +117,9 @@ module.exports = {
 		}),
 		new webpack.HotModuleReplacementPlugin()  //配置了它hmr才能生效
 	],
+	optimization: {
+		usedExports: true
+	},
 	output: {
 		// publicPath: '/',
 		filename: '[name].js',

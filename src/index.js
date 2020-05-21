@@ -35,7 +35,7 @@
 //   })
 // }
 
-import "@babel/polyfill";
+// import "@babel/polyfill";
 
 // const arr=[
 //   new Promise(()=>{}),
@@ -45,25 +45,25 @@ import "@babel/polyfill";
 // arr.map(item=>{
 //   console.log(item)
 // })
+
+
+
 //
+// import React,{Component} from 'react'
+// import ReactDom from 'react-dom';
+//
+// class App extends Component{
+//     render(){
+//       return <div>hello world</div>
+//     }
+// }
+//
+// ReactDom.render(<App/>,document.getElementById('root'))
 
 
+import {add} from './math.js'
 
-import React,{Component} from 'react'
-import ReactDom from 'react-dom';
-
-class App extends Component{
-    render(){
-      return <div>hello world</div>
-    }
-}
-
-ReactDom.render(<App/>,document.getElementById('root'))
-
-
-
-
-
+add(1,6)
 
 
 

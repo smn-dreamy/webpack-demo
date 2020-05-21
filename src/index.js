@@ -61,9 +61,30 @@
 // ReactDom.render(<App/>,document.getElementById('root'))
 
 
-import {add} from './math.js'
+// import {add} from './math.js'
+//
+// add(1,6)
 
-add(1,6)
+// import _ from 'lodash'; //通常我们会给lodash取名叫下划线
+//
+// console.log(_.join(['a','b','c'],'***'))
+
+
+// function getComponent(){
+//   return import(/*webpackChunkName:"lodash"*/'lodash').then(({default: _ })=>{
+//     var element = document.createElement('div')
+//     element.innerHTML = _.join(['dell','huahua'],'-')
+//     return element
+//   })
+// }
+//
+// getComponent().then(element=>{
+//   document.body.appendChild(element)
+// })
+
+
+import test from './test.js'
+console.log(test.name)
 
 
 

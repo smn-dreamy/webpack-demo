@@ -118,16 +118,17 @@
 // })
 
 
-document.addEventListener('click',()=>{
-  import(/*webpackPrefetch:true*/'./click.js').then(({default: _})=>{
-    _()
-  })
-})
+// document.addEventListener('click',()=>{
+//   import(/*webpackPrefetch:true*/'./click.js').then(({default: _})=>{
+//     _()
+//   })
+// })
 
 
+import './style.css'
 
 
-
+console.log('hello world')
 
 
 

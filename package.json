@@ -1,7 +1,7 @@
 {
   "name": "webpack-demo",
   "version": "1.0.0",
-  "sideEffects": false,
+  "sideEffects": ["*.css"],
   "description": "",
   "private": true,
   "main": "index.js",
@@ -29,6 +29,7 @@
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "jquery": "^3.5.1",
+    "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.2",

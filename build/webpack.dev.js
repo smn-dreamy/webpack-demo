@@ -17,15 +17,11 @@ const commonConfig = require('./webpack.common.js')
 		// 	'/api': 'http://localhost:3000'
 		// }
 	},
-
 	//**`HtmlWebpackPlugin`**：**会在打包结束后自动生一个html文件，并把打包生成的js自动的引入到这个html文件中**
 	//plugin可以在webpack运行到某个时刻的时候，帮你做一些事情
 	plugins: [
 		new webpack.HotModuleReplacementPlugin()  //配置了它hmr才能生效
 	],
-	optimization: {
-		usedExports: true
-	},
 
 }
 

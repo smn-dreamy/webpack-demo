@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
@@ -43,46 +44,46 @@ module.exports = {
   					}
   				}
   			},
-  			{
-  				test: /\.scss$/,
-  				use: [
-  					'style-loader',
-  					{
-  						loader: 'css-loader',
-  						options: {
-  							importLoaders: 2,
-  							// modules: true
-  						}
-  					},
-  					'sass-loader',
-  					{
-  						loader: 'postcss-loader',
-  						// options: {
-  						// 	plugins:()=>[
-  						// 		require('autoprefixer')({
-  	          //         browsers: ['last 2 version', '>1%', 'ios 7']
-  	          //   	})
-  						// 	]
-  						// }
-  					}
-  				]
-  			},
-  			{
-  				test: /\.css$/,
-  				use: [
-  					'style-loader',
-  					{
-  						loader: 'css-loader',
-  						options: {
-  							importLoaders: 2,
-  							// modules: true
-  						}
-  					},
-  					{
-  						loader: 'postcss-loader',
-  					}
-  				]
-  			},
+        {
+          test: /\.scss$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 2,
+                // modules: true
+              }
+            },
+            'sass-loader',
+            {
+              loader: 'postcss-loader',
+              // options: {
+              // 	plugins:()=>[
+              // 		require('autoprefixer')({
+              //         browsers: ['last 2 version', '>1%', 'ios 7']
+              //   	})
+              // 	]
+              // }
+            }
+          ]
+        },
+        {
+          test: /\.css$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 2,
+                // modules: true
+              }
+            },
+            {
+              loader: 'postcss-loader',
+            }
+          ]
+        },
   			{
   				test: /\.(eot|ttf|svg|woff)$/,
   				use: {
@@ -97,15 +98,16 @@ module.exports = {
   		}),
   		new CleanWebpackPlugin({
   			cleanAfterEveryBuildPattern: ['dist']
-  		})
+  		}),
+      new MiniCssExtractPlugin({
+        filename: '[name].css',
+        chunkFilename: '[name].chunk.css'
+      })
   	],
     optimization: {
+      usedExports: true,
       splitChunks: {
         chunks: 'all',
-        cacheGroups: {
-            vendors: false,
-            default: false
-        }
       }
       // splitChunks: {
       //     chunks: "all",  //在做代码分割的时候，只对异步的代码生效，如果想同步异步都分割，可以配置成“all”
@@ -135,5 +137,5 @@ module.exports = {
   		filename: '[name].js',
       chunkFilename: '[name].chunk.js',
   		path: path.resolve(__dirname, '../dist')
-  	}
+  	},
 }

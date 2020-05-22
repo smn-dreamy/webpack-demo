@@ -82,9 +82,56 @@
 //   document.body.appendChild(element)
 // })
 
+//
+// import test from './test.js'
+// console.log(test.name)
 
-import test from './test.js'
-console.log(test.name)
+
+
+// import _ from 'lodash'; //通常我们会给lodash取名叫下划线
+//
+// var element = document.createElement('div')
+// element.innerHTML = _.join(['dell','huahua'],'-')
+// document.body.appendChild(element)
+
+
+
+// function getComponent(){
+//   return import(/*webpackChunkName:"lodash"*/'lodash').then(({default: _ })=>{
+//     var element = document.createElement('div')
+//     element.innerHTML = _.join(['dell','huahua'],'-')
+//     return element
+//   })
+// }
+
+// async function getComponent(){
+//   const {default: _ } = await import(/*webpackChunkName:"lodash"*/'lodash')
+//   const element = document.createElement('div')
+//   element.innerHTML = _.join(['dell','huahua'],'-')
+//   return element
+// }
+//
+// document.addEventListener('click',()=>{
+//   getComponent().then(element=>{
+//     document.body.appendChild(element)
+//   })
+// })
+
+
+document.addEventListener('click',()=>{
+  import(/*webpackPrefetch:true*/'./click.js').then(({default: _})=>{
+    _()
+  })
+})
+
+
+
+
+
+
+
+
+
 
 
 

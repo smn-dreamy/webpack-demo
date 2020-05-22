@@ -100,39 +100,40 @@ module.exports = {
   		})
   	],
     optimization: {
-      // splitChunks: {
-      //   chunks: 'all',
-      //   cacheGroups: {
-      //       vendors: false,
-      //       default: false
-      //   }
-      // }
       splitChunks: {
-          chunks: "all",  //在做代码分割的时候，只对异步的代码生效，如果想同步异步都分割，可以配置成“all”
-          minSize: 0,
-          minChunks: 1,
-          maxAsyncRequests: 5,
-          maxInitialRequests: 3,
-          automaticNameDelimiter: '~',
-          name: true,
-          cacheGroups: {
-              vendors: {
-                  test: /[\\/]node_modules[\\/]/,
-                  priority: -10,
-                  filename: 'vendors.js'
-              },
-              default: {
-                  // minChunks: 2,
-                  priority: -20,
-                  reuseExistingChunk: true,
-                  filename: 'common.js'
-              }
-          }
+        chunks: 'all',
+        cacheGroups: {
+            vendors: false,
+            default: false
+        }
       }
+      // splitChunks: {
+      //     chunks: "all",  //在做代码分割的时候，只对异步的代码生效，如果想同步异步都分割，可以配置成“all”
+      //     minSize: 0,
+      //     minChunks: 1,
+      //     maxAsyncRequests: 5,
+      //     maxInitialRequests: 3,
+      //     automaticNameDelimiter: '~',
+      //     name: true,
+      //     cacheGroups: {
+      //         vendors: {
+      //             test: /[\\/]node_modules[\\/]/,
+      //             priority: -10,
+      //             filename: 'vendors.js'
+      //         },
+      //         default: {
+      //             // minChunks: 2,
+      //             priority: -20,
+      //             reuseExistingChunk: true,
+      //             filename: 'common.js'
+      //         }
+      //     }
+      // }
     },
     output: {
   		// publicPath: '/',
   		filename: '[name].js',
+      chunkFilename: '[name].chunk.js',
   		path: path.resolve(__dirname, '../dist')
   	}
 }

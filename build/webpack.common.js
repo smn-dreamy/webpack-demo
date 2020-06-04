@@ -106,9 +106,19 @@ module.exports = {
       })
   	],
     optimization: {
+      runtimeChunk: {
+        name: 'runtime'
+      },
       usedExports: true,
       splitChunks: {
         chunks: 'all',
+        cacheGroups: {
+          vendors: {
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10,
+            // filename: 'vendors.js'
+          }
+        }
       },
       minimizer: [new OptimizeCSSAssetsPlugin({})]
       // splitChunks: {
@@ -134,10 +144,11 @@ module.exports = {
       //     }
       // }
     },
+    performance: false,
     output: {
   		// publicPath: '/',
-  		filename: '[name].js',
-      chunkFilename: '[name].chunk.js',
+  		// filename: '[name].js',
+      // chunkFilename: '[name].chunk.js',
   		path: path.resolve(__dirname, '../dist')
   	},
 }

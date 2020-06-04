@@ -124,12 +124,21 @@
 //   })
 // })
 
+//
+// import './style.css'
+// import './style1.css'
+//
+//
+// console.log('hello world')
 
-import './style.css'
-import './style1.css'
 
 
-console.log('hello world')
+import _ from 'lodash'
+import $ from 'jquery'
+
+const dom = $('<div>')
+dom.html(_.join(['dell','le22e'], '  '))
+$('body').append(dom)
 
 
 

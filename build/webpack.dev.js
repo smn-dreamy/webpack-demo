@@ -22,7 +22,10 @@ const commonConfig = require('./webpack.common.js')
 	plugins: [
 		new webpack.HotModuleReplacementPlugin()  //配置了它hmr才能生效
 	],
-
+  output: {
+    filename: '[name].js',
+    chunkFilename: '[name].js',
+  }
 }
 
 module.exports = merge(commonConfig,devConfig)

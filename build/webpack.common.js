@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -108,7 +109,8 @@ module.exports = {
       usedExports: true,
       splitChunks: {
         chunks: 'all',
-      }
+      },
+      minimizer: [new OptimizeCSSAssetsPlugin({})]
       // splitChunks: {
       //     chunks: "all",  //在做代码分割的时候，只对异步的代码生效，如果想同步异步都分割，可以配置成“all”
       //     minSize: 0,

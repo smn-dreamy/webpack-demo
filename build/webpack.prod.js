@@ -1,5 +1,5 @@
-const merge  = require('webpack-merge')
-const commonConfig = require('./webpack.common.js')
+// const merge  = require('webpack-merge')
+// const commonConfig = require('./webpack.common.js')
 
 const prodConfig= {
 	mode: 'production',
@@ -9,4 +9,5 @@ const prodConfig= {
     chunkFilename: '[name].[contenthash].js',
   }
 }
-module.exports = merge(commonConfig,prodConfig)
+// module.exports = merge(commonConfig,prodConfig)
+module.exports = prodConfig

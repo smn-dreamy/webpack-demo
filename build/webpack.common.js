@@ -4,8 +4,10 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpack = require('webpack')
-
-module.exports = {
+const merge = require('webpack-merge');
+const devConfig = require('./webpack.dev.js');
+const prodConfig = require('./webpack.prod.js');
+const commonConfig = {
   entry: {
     // lodash: './src/lodash.js',
 		main: './src/index.js',
@@ -168,4 +170,12 @@ module.exports = {
       // chunkFilename: '[name].chunk.js',
   		path: path.resolve(__dirname, '../dist')
   	},
+}
+
+module.exports = (env) => {
+	if(env && env.production) {
+		return merge(commonConfig, prodConfig);
+	}else {
+		return merge(commonConfig, devConfig);
+	}
 }

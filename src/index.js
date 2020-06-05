@@ -132,16 +132,18 @@
 // console.log('hello world')
 
 
+//
+// import _ from 'lodash'
+// import $ from 'jquery'
+// import { ui } from './jquery.ui'
+// ui()
+//
+// const dom = $('<div>')
+// dom.html(_.join(['dell','le22e'], ' ---- '))
+// $('body').append(dom)
 
-import _ from 'lodash'
-import $ from 'jquery'
 
-const dom = $('<div>')
-dom.html(_.join(['dell','le22e'], '  '))
-$('body').append(dom)
-
-
-
+console.log(this)  //只想这个模块自身
 
 
 
